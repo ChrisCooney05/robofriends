@@ -3,9 +3,9 @@ import React from "react";
 class Hello extends React.Component {
   render() {
     return (
-      <div>
+      <div className="f1 tc">
         <h1>Hello World</h1>
-        <p>Welcome to react and my first Component</p>
+        <p>{this.props.greeting}</p>
       </div>
     );
   }
