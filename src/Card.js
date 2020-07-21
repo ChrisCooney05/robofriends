@@ -2,18 +2,17 @@ import React from "react";
 
 class Card extends React.Component {
   render() {
+    const { name, email, id } = this.props;
     return (
       <div className="tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5">
-        <img
-          src={`https://robohash.org/${this.props.id}?size=200x200`}
-          alt="Robot"
-        ></img>
+        <img src={`https://robohash.org/${id}?size=200x200`} alt="Robot"></img>
         <div>
-          <h2>{this.props.name}</h2>
-          <p>{this.props.email}</p>
+          <h2>{name}</h2>
+          <p>{email}</p>
         </div>
       </div>
     );
   }
 }
 export default Card;
+//we can use destructuring on this.props to make our code cleaner
