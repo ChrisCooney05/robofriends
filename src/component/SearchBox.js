@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
 
-class SearchBox extends React.Component {
+class SearchBox extends Component {
   render() {
     return (
       <div className="pa2">
