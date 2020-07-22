@@ -27,13 +27,12 @@ class App extends Component {
 
   //we filter the robots we have in state against the searchfield with have stored in state to return any matches
   render() {
-    const filteredRobots = this.state.robots.filter((robot) => {
-      return robot.name
-        .toLowerCase()
-        .includes(this.state.searchField.toLowerCase());
+    const { robots, searchField } = this.state;
+    const filteredRobots = robots.filter((robot) => {
+      return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
-
-    if (this.state.robots.length === 0) {
+    //0 evaluates as false and ! turns it into true so its easier to read vs .length === 0
+    if (!robots.length) {
       return <h1 className="tc">Loading...</h1>;
     } else {
       return (
