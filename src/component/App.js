@@ -19,12 +19,8 @@ class App extends Component {
 
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => {
-        return res.json();
-      })
-      .then((users) => {
-        this.setState({ robots: users });
-      });
+      .then((res) => res.json()) //turn response into json
+      .then((users) => this.setState({ robots: users }));
   }
   //we now fetch users from an api and store that in state after App has mounted
 
