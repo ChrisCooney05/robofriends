@@ -11,10 +11,18 @@ class App extends Component {
       searchField: "",
     };
   }
-
-  onSearchChange(event) {
-    console.log(event);
-  }
+  //by using an arrow function we can keep the value of this. as the App class, if not we will get an undefined
+  //error back
+  onSearchChange = (event) => {
+    this.setState({ searchField: event.target.value }); //uses to change the state object, must use setState()
+    const filteredRobots = this.state.robots.filter((robot) => {
+      return robot.name
+        .toLowerCase()
+        .includes(this.state.searchField.toLowerCase());
+    });
+    console.log(filteredRobots);
+  };
+  //we filter the robots we have in state against the searchfield with have stored in state to return any matches
 
   render() {
     return (
