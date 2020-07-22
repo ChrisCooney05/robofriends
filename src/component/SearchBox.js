@@ -2,7 +2,15 @@ import React from "react";
 
 class SearchBox extends React.Component {
   render() {
-    return <input type="search" placeholder="Search Robots" />;
+    return (
+      <div className="pa2">
+        <input
+          className="pa3 ba b--green bg-lightest-blue"
+          type="search"
+          placeholder="Search Robots"
+        />
+      </div>
+    );
   }
 }
 
