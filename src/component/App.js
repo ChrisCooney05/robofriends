@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import CardList from "./CardList";
 import SearchBox from "./SearchBox";
-import { robots } from "../robots";
 import "../app.css";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      robots: robots,
+      robots: [],
       searchField: "",
     };
   }
@@ -17,6 +16,17 @@ class App extends Component {
   onSearchChange = (event) => {
     this.setState({ searchField: event.target.value }); //uses to change the state object, must use setState()
   };
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        return res.json();
+      })
+      .then((users) => {
+        this.setState({ robots: users });
+      });
+  }
+  //we now fetch users from an api and store that in state after App has mounted
 
   //we filter the robots we have in state against the searchfield with have stored in state to return any matches
   render() {
