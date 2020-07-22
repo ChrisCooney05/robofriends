@@ -31,13 +31,18 @@ class App extends Component {
         .toLowerCase()
         .includes(this.state.searchField.toLowerCase());
     });
-    return (
-      <div className="tc">
-        <h1 className="f1">RoboFriends</h1>
-        <SearchBox onSearchChange={this.onSearchChange} />
-        <CardList robots={filteredRobots} />;
-      </div>
-    );
+
+    if (this.state.robots.length === 0) {
+      return <h1>Loading...</h1>;
+    } else {
+      return (
+        <div className="tc">
+          <h1 className="f1">RoboFriends</h1>
+          <SearchBox onSearchChange={this.onSearchChange} />
+          <CardList robots={filteredRobots} />;
+        </div>
+      );
+    }
   }
 }
 //we construct a onSearchChange method and pass that in as a prop to SearchBox
