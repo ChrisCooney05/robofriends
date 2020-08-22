@@ -13,3 +13,4 @@ export const searchRobots = (state = initialState, action = {}) => {
       return state;
   }
 };
+//an alternatives to Object.assign is {...state, searchField: action.payload } spread operator is les verbose
